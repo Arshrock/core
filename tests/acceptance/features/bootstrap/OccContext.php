@@ -3,7 +3,6 @@
  * ownCloud
  *
  * @author Phil Davis <phil@jankaritech.com>
- * @author David Toledo <dtoledo@owncloud.com>
  * @copyright Copyright (c) 2018, ownCloud GmbH
  *
  * This code is free software: you can redistribute it and/or modify
@@ -528,19 +527,6 @@ class OccContext implements Context {
 	}
 
 	/**
-	 * @When the administrator sets the backend to :backend using the occ command
-	 *
-	 * @param string $backend
-	 *
-	 * @return void
-	 */
-	public function theAdministratorSetsBackendUsingTheOccCommand($backend) {
-		$this->featureContext->invokingTheCommand(
-			"log:manage --backend $backend"
-		);
-	}
-
-	/**
 	 * @When the administrator enables the ownCloud backend using the occ command
 	 *
 	 * @return void
@@ -573,10 +559,10 @@ class OccContext implements Context {
 	 */
 	public function theAdministratorSetsLogFileSizeUsingTheOccCommand($size) {
 		$this->featureContext->invokingTheCommand(
-			"log:owncloud --file $size"
+			"log:owncloud --rotate-size $size"
 		);
 	}
-	
+
 	/**
 	 * This will run before EVERY scenario.
 	 * It will set the properties for this object.

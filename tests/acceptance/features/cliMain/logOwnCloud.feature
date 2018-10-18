@@ -21,8 +21,8 @@ Feature: manipulate ownCloud logging backend
   Scenario Outline: Admin sets the file size for log rotation
     When the administrator sets the file size to <size> for using the occ command
     Then the command should have been successful
-    And the command output should contain the text 'Rotate at: "<output>"'
+    And the command output should contain the text 'Rotate at: <output>'
     Examples:
       | size | output |
-      | 100 | "100 B" |
-      | 100MB | "100 MB" |
+      | 100 | 100 B |
+      | 100MB | 100 MB |
