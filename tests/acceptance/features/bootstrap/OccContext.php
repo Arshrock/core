@@ -3,6 +3,7 @@
  * ownCloud
  *
  * @author Phil Davis <phil@jankaritech.com>
+ * @author David Toledo <dtoledo@owncloud.com>
  * @copyright Copyright (c) 2018, ownCloud GmbH
  *
  * This code is free software: you can redistribute it and/or modify
@@ -539,6 +540,43 @@ class OccContext implements Context {
 		);
 	}
 
+	/**
+	 * @When the administrator enables the ownCloud backend using the occ command
+	 *
+	 * @return void
+	 */
+	public function theAdministratorEnablesOwnCloudBackendUsingTheOccCommand() {
+		$this->featureContext->invokingTheCommand(
+			"log:owncloud --enable"
+		);
+	}
+
+	/**
+	 * @When the administrator sets the log file path to :path using the occ command
+	 *
+	 * @param string $path
+	 *
+	 * @return void
+	 */
+	public function theAdministratorSetsLogFilePathUsingTheOccCommand($path) {
+		$this->featureContext->invokingTheCommand(
+			"log:owncloud --file $path"
+		);
+	}
+
+	/**
+	 * @When the administrator sets the file size to :size for using the occ command
+	 *
+	 * @param string $size
+	 *
+	 * @return void
+	 */
+	public function theAdministratorSetsLogFileSizeUsingTheOccCommand($size) {
+		$this->featureContext->invokingTheCommand(
+			"log:owncloud --file $size"
+		);
+	}
+	
 	/**
 	 * This will run before EVERY scenario.
 	 * It will set the properties for this object.
